@@ -103,6 +103,42 @@ function getImmediateSubsets(arr) {
 console.log(getImmediateSubsets([1, 2, 3, 4, 5]))
 
 // *************************************************************************************
+function getImmediateSubsets(arr, num) {
+  const allSubsets = []
+  for (let i = 0; i <= arr.length - num; i++) {
+    let subsets = []
+    subsets.push([arr[i]])
+
+    for (let j = i + 1; j <= arr.length - num; j++) {
+      subsets.push(subsets[j - (i + 1)].concat(arr[j]))
+    }
+
+    allSubsets.push(subsets)
+  }
+
+  return console.log('allSubsets : ', allSubsets)
+}
+
+getImmediateSubsets([1, 2, 3, 4, 5], 1)
 // *************************************************************************************
+function getImmediateSubsets(arr) {
+  const allSubsets = []
+  for (let i = 0; i < arr.length; i++) {
+    let j = i + 1
+    let subsets = []
+    subsets.push([arr[i]])
+
+    while (j < arr.length) {
+      subsets.push(subsets[j - (i + 1)].concat(arr[j]))
+      j++
+    }
+
+    allSubsets.push(subsets)
+  }
+
+  return console.log('allSubsets : ', allSubsets)
+}
+
+getImmediateSubsets([1, 2, 3, 4, 5])
 // *************************************************************************************
 // *************************************************************************************

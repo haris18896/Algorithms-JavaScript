@@ -1,4 +1,4 @@
-function getImmediateSubsets(arr, num) {
+function getImmediateSubsets(arr) {
   const allSubsets = []
   for (let i = 0; i < arr.length; i++) {
     let subsets = []
@@ -11,8 +11,7 @@ function getImmediateSubsets(arr, num) {
     allSubsets.push(subsets)
   }
 
-  return allSubsets
+  return console.log('allSubsets : ', allSubsets)
 }
 
-// getImmediateSubsets([1, 2, 3, 4, 5])
-console.log(getImmediateSubsets([1, 2, 3, 4, 5], 1))
+getImmediateSubsets([1, 2, 3, 4, 5])
