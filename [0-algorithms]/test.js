@@ -1,15 +1,21 @@
 function getImmediateSubsets(arr) {
-  const subsets = [[]]
+  const allSubsets = []
 
-  for (let ele of arr) {
-    const last = subsets.length - 1
-    for (let i = 0; i <= last; i++) {
-      subsets.push(subsets[i].concat(ele))
+  for (let i = 0; i < arr.length; i++) {
+    let subsets = []
+
+    for (let j = i; j < arr.length; j++) {
+      if (j !== i) {
+        subsets.push([...subsets[j - (i + 1)], arr[j]])
+      } else {
+        subsets.push([arr[j]])
+      }
     }
+    allSubsets.push(subsets)
   }
 
-  return subsets
+  return allSubsets
 }
 
-// getImmediateSubsets([1, 2, 3, 4])
-console.log(getImmediateSubsets([1, 2, 'h1', 4]))
+// getImmediateSubsets([1, 2, 3, 4, 5])
+console.log(getImmediateSubsets([1, 2, 3, 4, 5]))
