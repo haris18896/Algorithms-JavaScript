@@ -1,4 +1,5 @@
 function prime() {
+  let prime = []
   for (let num = 2; num <= 150; num++) {
     let i = 2
     while (i <= num / 2) {
@@ -8,9 +9,10 @@ function prime() {
       i++
     }
     if (i > num / 2) {
-      console.log('Prime', num)
+      prime.push(num)
     }
   }
+  console.log(prime)
 }
 
 prime()
